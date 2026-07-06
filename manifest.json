@@ -1,0 +1,16 @@
+{
+  "name": "احنا هنخلص امته بجد",
+  "short_name": "التايمر",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#001a2d",
+  "theme_color": "#001a2d",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/JFjmFfnG/IMG-20260516-WA0015.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

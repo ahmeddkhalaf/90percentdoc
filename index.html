@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -30,7 +30,7 @@
         .bg-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), 
                               url('https://i.ibb.co/JFjmFfnG/IMG-20260516-WA0015.jpg');
             background-size: contain;
             background-position: center;
@@ -64,10 +64,10 @@
 
         #primaryComponent {
             width: 95%;
-            max-width: 440px; 
-            top: 25%;
+            max-width: 460px; 
+            top: 20%;
             left: 50%;
-            margin-left: -220px; 
+            margin-left: -230px; 
             transform: scale(0.9); 
             opacity: 0;
             filter: blur(5px);
@@ -75,14 +75,15 @@
             animation-delay: 0.5s;
         }
 
-        @media (max-width: 460px) {
+        @media (max-width: 480px) {
             #primaryComponent {
                 left: 2.5%;
                 margin-left: 0;
             }
         }
+
         #secondaryComponent {
-            bottom: 25%;
+            bottom: 22%;
             left: 50%;
             transform: translateX(-50%) scale(1);
             display: inline-flex;
@@ -99,21 +100,36 @@
         }
 
         h1 {
-            font-size: 1.8rem; 
-            font-weight: 700;
+            font-size: 1.9rem; 
+            font-weight: 800;
             margin-bottom: 6px;
-            text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.95), 0px 4px 20px rgba(0, 0, 0, 0.85);
+            color: #ffffff;
+            text-shadow: 0px 0px 12px rgba(64, 224, 208, 0.6), 0px 4px 20px rgba(0, 0, 0, 0.9);
         }
 
         .sub-text {
-            color: #40e0d0;
-            font-size: 0.95rem;
+            color: #ffaa00;
+            font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px; 
+            letter-spacing: 1.5px;
+            margin-bottom: 20px; 
             display: block;
-            text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.9), 0px 0px 12px rgba(64, 224, 208, 0.6);
+            text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.9), 0px 0px 10px rgba(255, 170, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .sub-text.showy-finished {
+            font-size: 1.8rem !important;
+            color: #00ff66 !important;
+            text-shadow: 0 0 15px #00ff66, 0 0 25px #00ff66, 0 0 35px #00ff66 !important;
+            animation: pulseGlow 1.2s infinite alternate ease-in-out;
+            margin-top: 10px;
+        }
+
+        @keyframes pulseGlow {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
         }
         
         .game-scoreboard {
@@ -130,7 +146,7 @@
             font-size: 1rem;
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
             pointer-events: none;
         }
 
@@ -140,40 +156,82 @@
         .countdown {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px; 
+            gap: 10px; 
             width: 100%;
         }
 
         .box {
-            background: rgba(0, 0, 0, 0.3); 
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 12px 4px; 
-            border-radius: 14px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            background: rgba(0, 26, 45, 0.65); 
+            border: 1.5px solid rgba(64, 224, 208, 0.4);
+            padding: 14px 4px; 
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .box.highlight-days {
+            border-color: #ffaa00;
+            background: rgba(255, 170, 0, 0.15);
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.3);
         }
         
         .number {
             display: block;
-            font-size: 2rem; 
-            font-weight: 800;
+            font-size: 2.2rem; 
+            font-weight: 900;
             color: #40e0d0;
             font-variant-numeric: tabular-nums;
-            text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.9), 0px 0px 10px rgba(64, 224, 208, 0.4);
+            text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.9), 0px 0px 12px rgba(64, 224, 208, 0.6);
+        }
+
+        .box.highlight-days .number {
+            color: #ffaa00;
+            text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.9), 0px 0px 12px rgba(255, 170, 0, 0.7);
         }
 
         .label {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1px;
-            opacity: 0.75;
-            margin-top: 3px;
+            opacity: 0.85;
+            margin-top: 4px;
             display: block;
             text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.9);
         }
 
+        #bouncingVideoContainer {
+            position: absolute;
+            width: 160px;
+            height: 100px;
+            z-index: 4;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #40e0d0;
+            box-shadow: 0 0 15px rgba(64, 224, 208, 0.5);
+            background: #000;
+            cursor: grab;
+            touch-action: none;
+            top: 50px;
+            left: 50px;
+            user-select: none;
+            transition: opacity 0.3s ease;
+        }
+
+        #bouncingVideoContainer:active {
+            cursor: grabbing;
+        }
+
+        #bouncingVideoContainer video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
         .secondary-timer-wrapper {
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.65);
             border: 1px solid rgba(64, 224, 208, 0.3);
             padding: 11px 20px;
             border-radius: 30px;
@@ -250,23 +308,6 @@
             text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.9);
         }
 
-        .bounce-screensaver {
-            width: 120px;
-            height: auto;
-            position: absolute;
-            top: 0; left: 0;
-            z-index: 4;
-            border-radius: 12px;
-            border: 1.5px solid rgba(64, 224, 208, 0.3);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            cursor: grab;
-            touch-action: none;
-            user-select: none;
-            will-change: transform;
-        }
-
-        .bounce-screensaver:active { cursor: grabbing; }
-
         #gameAreaLayer {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -277,31 +318,30 @@
 
         .game-brick {
             position: absolute;
-            height: 18px;
-            border-radius: 4px;
-            border: 1px solid rgba(0,0,0,0.3);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 2px 4px rgba(0,0,0,0.4);
+            height: 22px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 3px 6px rgba(0,0,0,0.5);
             will-change: opacity;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.6rem;
-            font-weight: bold;
+            font-size: 0.75rem;
+            font-weight: 800;
             color: #ffffff;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
         }
 
         .game-ball {
             position: absolute;
-            width: 24px;
-            height: 10px;
-            background: linear-gradient(to right, #ff2a00, #ffaa00, #ffffff);
-            border-radius: 2px 50% 50% 2px;
-            box-shadow: -6px 0 12px #ff4a4a;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #ffaa00, #ff2a00);
+            border-radius: 50%;
+            box-shadow: 0 0 12px #ffaa00;
             z-index: 4;
             display: none;
             will-change: transform;
-            transform-origin: center center;
         }
 
         .sliding-shelf {
@@ -346,12 +386,11 @@
         }
 
         .setting-row { display: flex; flex-direction: column; gap: 6px; }
+        .setting-row.row-horizontal { flex-direction: row; justify-content: space-between; align-items: center; }
         .setting-row label { font-size: 0.85rem; font-weight: 600; color: #40e0d0; }
         .setting-row input[type="text"], .setting-row input[type="number"] {
             background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(64, 224, 208, 0.3); border-radius: 8px; padding: 10px 12px; color: #ffffff; font-size: 0.95rem; outline: none; transition: border-color 0.2s; direction: rtl;
         }
-        .setting-row input[type="text"]:focus, .setting-row input[type="number"]:focus { border-color: #40e0d0; box-shadow: 0 0 8px rgba(64, 224, 208, 0.2); }
-        .toggle-row { flex-direction: row; justify-content: space-between; align-items: center; padding-top: 4px; }
 
         .game-button-centering-box { display: flex; width: 100%; justify-content: center; align-items: center; padding: 4px 0; }
         .game-action-btn {
@@ -362,35 +401,25 @@
 
         .switch { position: relative; display: inline-block; width: 46px; height: 24px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255, 255, 255, 0.15); transition: .3s; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #334155; transition: .3s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
         input:checked + .slider { background-color: #40e0d0; }
         input:checked + .slider:before { transform: translateX(22px); }
 
         #pomodoroOverlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.96);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            cursor: pointer;
-            transition: background 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.96); z-index: 9999; justify-content: center; align-items: center; flex-direction: column; cursor: pointer; transition: background 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        #pomodoroDisplay {
-            font-size: 6.5rem;
-            font-weight: 900;
-            color: #40e0d0;
-            text-shadow: 0 0 25px rgba(64, 224, 208, 0.6);
-        }
+        #pomodoroDisplay { font-size: 6.5rem; font-weight: 900; color: #40e0d0; text-shadow: 0 0 25px rgba(64, 224, 208, 0.6); }
     </style>
 </head>
 <body>
     <div class="bg-overlay"></div>
     <canvas id="bokehCanvas"></canvas>
     <canvas id="victoryConfettiCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 6; pointer-events: none; display: none;"></canvas>
+
+    <div id="bouncingVideoContainer">
+        <video id="bouncingVideo" loop muted playsinline autoplay src="bahgat.mp4"></video>
+    </div>
 
     <div class="game-scoreboard" id="gameScoreboard">
         <div>SCORE: <span class="score-val" id="scoreValue">0000</span></div>
@@ -419,16 +448,15 @@
         <audio id="bg-music" loop preload="auto" muted>
             <source src="tabeeb.mp3" type="audio/mpeg">
         </audio>
+        <audio id="playlist-audio" preload="auto"></audio>
     </div>
 
-    <img src="https://i.ibb.co/W4SYcHS2/Screenshot-2026-06-12-15-01-46-797-com-miui-gallery-edit.jpg" class="bounce-screensaver" id="bouncingComponent" alt="Bouncing Screensaver" style="display: none;">
-    
     <div class="zoom-drag-component" id="primaryComponent">
         <h1>الوقت المتبقي لنهاية الترم</h1>
-        <span class="sub-text" id="phraseDisplay">كسر كسر واحنا نجبس</span>
+        <span class="sub-text" id="phraseDisplay">وي وا وي وا وي وا(صوت عربيه اسعاف بقا وكده)</span>
         
         <div class="countdown">
-            <div class="box"><span class="number" id="days">00</span><span class="label">Days</span></div>
+            <div class="box highlight-days"><span class="number" id="days">00</span><span class="label">Days</span></div>
             <div class="box"><span class="number" id="hours">00</span><span class="label">Hours</span></div>
             <div class="box"><span class="number" id="mins">00</span><span class="label">Mins</span></div>
             <div class="box"><span class="number" id="secs">00</span><span class="label">Secs</span></div>
@@ -455,87 +483,70 @@
             <h3>شرح لمدي خوطوره الموقع</h3>
             <p>اولا: تعرف ان التايمرات دي ممكن تحركها عادي لأي مكان؟؟</p>
             <p>لا وممكن كمان تغير حجمها جرب كده</p>
-            <p>ثانيا بقا الصوره دي ممكن تمسكها عادي وتكبرها وتصغرها كماه وترميها ف اي اتجاه براحتك (جرب كده تصغرها وارميها بسرعه ولو راجل وقفها بقا)</p>
-            <p>ثالثاً: ضفتلك برومودرو علشان ميبقاش عندك حجة متذاكرش.</p>
-            <p>رابعاً: وضفتلك بردو لعب خوطورة، هي كان فيها شويه ديفوهات بس خلاص تم تظبيطها. 😎</p>
+            <p>ثانياً: ضفتلك برومودرو علشان ميبقاش عندك حجة متذاكرش.</p>
+            <p>ثالثاً: وضفتلك بردو لعب خوطورة، هي كان فيها شويه ديفوهات بس خلاص تم تظبيطها. 😎</p>
             <p>ولو تبتتمرقع روح ذاكر بقا بجد خد لينك مجمعة نينجا اهو...</p> 
             <p>دوس <a href="https://t.me/medicine39mu" target="_blank" class="shelf-link">هنا</a> اهو</p>
 
             <div class="settings-container">
                 <div class="setting-row" style="border-bottom: 1px solid rgba(64, 224, 208, 0.15); padding-bottom: 12px; margin-bottom: 4px;">
                     <label style="color: #40e0d0; font-weight: bold; text-align: center; display: block; margin-bottom: 6px;">البرومودرو </label>
-                    <div style="display: flex; gap: 10px; width: 100%;">
-                        <div style="width: 50%; text-align: right;">
-                            <label for="studyTimeInput" style="font-size: 0.75rem; opacity: 0.8; display: block; margin-bottom: 4px;">المذاكرة</label>
-                            <input type="number" id="studyTimeInput" value="25" min="1" max="180" style="width: 100%; text-align: center;">
-                        </div>
-                        <div style="width: 50%; text-align: right;">
-                            <label for="breakTimeInput" style="font-size: 0.75rem; opacity: 0.8; display: block; margin-bottom: 4px;">البريك</label>
-                            <input type="number" id="breakTimeInput" value="5" min="1" max="60" style="width: 100%; text-align: center;">
-                        </div>
+                    <div style="display: flex; gap: 10px; justify-content: center;">
+                        <div style="flex: 1;"><label style="font-size: 0.75rem;">المذاكرة (دقيقة)</label><input type="number" id="studyTimeInput" value="25" min="1" max="120"></div>
+                        <div style="flex: 1;"><label style="font-size: 0.75rem;">البريك (دقيقة)</label><input type="number" id="breakTimeInput" value="5" min="1" max="60"></div>
                     </div>
                     <div class="game-button-centering-box" style="margin-top: 10px;">
-                        <button class="game-action-btn" id="pomodoroBtn" style="background: #40e0d0; color: #001a2d; box-shadow: 0 4px 15px rgba(64, 224, 208, 0.3); width: 100%;">ابدأ جلسة التركيز</button>
+                        <button class="game-action-btn" id="pomodoroBtn" style="background: #0284c7; width: 100%;">ابدأ البرومودرو ⏱️</button>
                     </div>
                 </div>
+
                 <div class="setting-row">
-                    <label for="phraseInput">غير الجمله</label>
-                    <input type="text" id="phraseInput" placeholder="اكتب جملتك هنا...">
+                    <label>غير الجملة المكتوبه براحتك:</label>
+                    <input type="text" id="phraseInput" placeholder="اكتب الجملة هنا...">
                 </div>
-                <div class="setting-row toggle-row" style: display: none">
-                    <label for="bouncerToggle">شيل الصورة او رجعها</label>
+
+                <!-- Video toggle placed directly above games -->
+                <div class="setting-row row-horizontal" style="margin-top: 6px; border-top: 1px solid rgba(64, 224, 208, 0.15); padding-top: 10px;">
+                    <label for="videoToggle">إظهار الفيديو العائم 🎥</label>
                     <label class="switch">
-                        <input type="checkbox" id="bouncerToggle" checked>
+                        <input type="checkbox" id="videoToggle" checked>
                         <span class="slider"></span>
                     </label>
                 </div>
-                <div class="setting-row" style="margin-top: 4px; text-align: center; gap: 8px;">
-                    <label style="color: #ffaa00; text-align: right; display: block; width: 100%;">الالعاب الخوطورة</label>
-                    <div class="game-button-centering-box">
-                        <button class="game-action-btn" id="gameModeBtn">Start Brick Game</button>
-                    </div>
-                    <div class="game-button-centering-box" style="margin-top: 6px;">
-                        <button class="game-action-btn" id="flappyGameModeBtn" style="background: #eab308; box-shadow: 0 4px 15px rgba(234, 179, 8, 0.35);">Start Flappy Bird</button>
-                    </div>
+
+                <div class="game-button-centering-box" style="margin-top: 8px;">
+                    <button class="game-action-btn" id="gameModeBtn">BRICKS GAME</button>
+                </div>
+                <div class="game-button-centering-box" style="margin-top: 8px;">
+                    <button class="game-action-btn" id="flappyGameModeBtn" style="background: #eab308;">Start Flappy Bird 🐤</button>
                 </div>
             </div>
-            <div style="height: 15px; width: 100%;"></div>
         </div>
     </div>
     <script>
+        // Bokeh Particles
         const canvas = document.getElementById('bokehCanvas');
         const ctx = canvas.getContext('2d');
-        let orbs = [];
-        const orbCount = 16; 
+        let particles = [];
 
         function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        class BokehOrb {
-            constructor() { this.reset(); this.y = Math.random() * canvas.height; }
-            reset() {
-                this.x = Math.random() * canvas.width; this.y = -50;
-                this.size = Math.random() * 32 + 15; this.speed = Math.random() * 0.25 + 0.1; 
-                this.opacity = Math.random() * 0.10 + 0.03; this.pulseSpeed = Math.random() * 0.02 + 0.005; this.pulseDegree = 0;
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 12 + 4; this.speedX = Math.random() * 0.4 - 0.2;
+                this.speedY = Math.random() * -0.6 - 0.2; this.opacity = Math.random() * 0.5 + 0.1;
             }
-            update() {
-                this.y += this.speed; this.pulseDegree += this.pulseSpeed;
-                this.currentOpacity = this.opacity + Math.sin(this.pulseDegree) * 0.015;
-                if (this.y - this.size > canvas.height) this.reset();
-            }
-            draw() {
-                ctx.beginPath();
-                let gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-                gradient.addColorStop(0, `rgba(64, 224, 208, ${this.currentOpacity})`);
-                gradient.addColorStop(0.6, `rgba(64, 224, 208, ${this.currentOpacity * 0.35})`);
-                gradient.addColorStop(1, 'rgba(64, 224, 208, 0)');
-                ctx.fillStyle = gradient; ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
-            }
+            update() { this.x += this.speedX; this.y += this.speedY; if (this.y < -20) { this.y = canvas.height + 20; this.x = Math.random() * canvas.width; } }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = `rgba(64, 224, 208, ${this.opacity})`; ctx.shadowBlur = 12; ctx.shadowColor = '#40e0d0'; ctx.fill(); }
         }
-        for (let i = 0; i < orbCount; i++) orbs.push(new BokehOrb());
-        function animateBokeh() { ctx.clearRect(0, 0, canvas.width, canvas.height); orbs.forEach(orb => { orb.update(); orb.draw(); }); requestAnimationFrame(animateBokeh); }
+        for (let i = 0; i < 45; i++) particles.push(new Particle());
+        function animateBokeh() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animateBokeh); }
         animateBokeh();
 
+        // Confetti Celebration Engine
         const confettiCanvas = document.getElementById('victoryConfettiCanvas');
         const confettiCtx = confettiCanvas.getContext('2d');
         let confettiParticles = [], confettiAnimationId = null;
@@ -544,10 +555,10 @@
             confettiCanvas.width = window.innerWidth; confettiCanvas.height = window.innerHeight;
             confettiCanvas.style.display = 'block'; confettiParticles = [];
             const colors = ['#40e0d0', '#ffaa00', '#ff4a4a', '#00ff66', '#e040fb', '#00e5ff'];
-            for (let i = 0; i < 150; i++) {
+            for (let i = 0; i < 180; i++) {
                 confettiParticles.push({
                     x: Math.random() * confettiCanvas.width, y: Math.random() * -confettiCanvas.height - 20, 
-                    size: Math.random() * 6 + 4, color: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * 7 + 4, color: colors[Math.floor(Math.random() * colors.length)],
                     speedX: Math.random() * 4 - 2, speedY: Math.random() * 3 + 2,
                     rotation: Math.random() * 360, rotationSpeed: Math.random() * 4 - 2, opacity: 1
                 });
@@ -572,8 +583,134 @@
             else confettiCanvas.style.display = 'none';
         }
 
+        // DVD Bouncing & Throw Physics
+        const videoBox = document.getElementById('bouncingVideoContainer');
+        const videoToggle = document.getElementById('videoToggle');
+        
+        let vPosX = 50, vPosY = 50;
+        let vVelX = 2.0, vVelY = 1.8;
+        let isDraggingVideo = false;
+        let lastTouchX = 0, lastTouchY = 0;
+        let dragVelX = 0, dragVelY = 0;
+        let userManuallyHidden = false;
+
+        function updateVideoVisibility() {
+            if (userManuallyHidden || gameModeActive || flappyActive || (activeSessionType === 'study')) {
+                videoBox.style.display = 'none';
+            } else {
+                videoBox.style.display = 'block';
+            }
+        }
+
+        videoToggle.addEventListener('change', (e) => {
+            userManuallyHidden = !e.target.checked;
+            updateVideoVisibility();
+        });
+
+        function physicsLoopVideo() {
+            if (!isDraggingVideo && videoBox.style.display !== 'none') {
+                const videoW = 160, videoH = 100;
+                const screenW = window.innerWidth, screenH = window.innerHeight;
+
+                // Off-screen throw detection
+                if (vPosX < -180 || vPosX > screenW + 180 || vPosY < -180 || vPosY > screenH + 180) {
+                    userManuallyHidden = true;
+                    videoToggle.checked = false;
+                    updateVideoVisibility();
+                    vPosX = 50; vPosY = 50; vVelX = 2.0; vVelY = 1.8;
+                } else {
+                    vPosX += vVelX;
+                    vPosY += vVelY;
+
+                    // Bounce on screen edges
+                    if (vPosX <= 0) { vPosX = 0; vVelX = Math.abs(vVelX); }
+                    if (vPosX + videoW >= screenW) { vPosX = screenW - videoW; vVelX = -Math.abs(vVelX); }
+                    if (vPosY <= 0) { vPosY = 0; vVelY = Math.abs(vVelY); }
+                    if (vPosY + videoH >= screenH) { vPosY = screenH - videoH; vVelY = -Math.abs(vVelY); }
+
+                    videoBox.style.left = `${vPosX}px`;
+                    videoBox.style.top = `${vPosY}px`;
+                }
+            }
+            requestAnimationFrame(physicsLoopVideo);
+        }
+        physicsLoopVideo();
+
+        videoBox.addEventListener('pointerdown', (e) => {
+            isDraggingVideo = true;
+            lastTouchX = e.clientX;
+            lastTouchY = e.clientY;
+            dragVelX = 0; dragVelY = 0;
+            videoBox.setPointerCapture(e.pointerId);
+        });
+
+        videoBox.addEventListener('pointermove', (e) => {
+            if (!isDraggingVideo) return;
+            dragVelX = e.clientX - lastTouchX;
+            dragVelY = e.clientY - lastTouchY;
+            vPosX += dragVelX;
+            vPosY += dragVelY;
+            lastTouchX = e.clientX;
+            lastTouchY = e.clientY;
+            videoBox.style.left = `${vPosX}px`;
+            videoBox.style.top = `${vPosY}px`;
+        });
+
+        videoBox.addEventListener('pointerup', (e) => {
+            if (!isDraggingVideo) return;
+            isDraggingVideo = false;
+            // Throw velocity calculation
+            if (Math.abs(dragVelX) > 8 || Math.abs(dragVelY) > 8) {
+                vVelX = dragVelX * 1.5;
+                vVelY = dragVelY * 1.5;
+            } else {
+                vVelX = (Math.random() > 0.5 ? 1 : -1) * 2.0;
+                vVelY = (Math.random() > 0.5 ? 1 : -1) * 1.8;
+            }
+            try { videoBox.releasePointerCapture(e.pointerId); } catch(err){}
+        });
+        // End-of-Semester Audio Playlist Engine
+        const playlistSongs = ["rakasony.mp3", "nagahna.mp3", "eid.mp3", "elnageh.mp3", "khalas.mp3", "ferksh.mp3", "khelst.mp3"];
+        let shuffledPlaylist = [];
+        let currentTrackIndex = 0;
+        let playlistInitialized = false;
+        const playlistAudioPlayer = document.getElementById('playlist-audio');
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function playNextPlaylistSong() {
+            if (shuffledPlaylist.length === 0) return;
+            playlistAudioPlayer.src = shuffledPlaylist[currentTrackIndex];
+            playlistAudioPlayer.play().catch(err => console.log("Audio playback waiting for interaction"));
+            currentTrackIndex = (currentTrackIndex + 1) % shuffledPlaylist.length;
+        }
+
+        playlistAudioPlayer.addEventListener('ended', () => {
+            playNextPlaylistSong();
+        });
+
+        function startSemesterEndingSequence() {
+            if (!playlistInitialized) {
+                playlistInitialized = true;
+                const bgAudio = document.getElementById("bg-music");
+                if (bgAudio) { bgAudio.pause(); }
+
+                shuffledPlaylist = shuffleArray(playlistSongs);
+                currentTrackIndex = 0;
+                playNextPlaylistSong();
+            }
+        }
+
+        // Semester Countdown
         const termTarget = new Date("July 29, 2026 12:00:00").getTime();
-        const examTarget = new Date("July 21, 2026 10:00:00").getTime();
+        const examTarget = new Date("July 29, 2026 10:00:00").getTime();
 
         function updateTimers() {
             const now = new Date().getTime();
@@ -585,40 +722,24 @@
             const distance1 = termTarget - now;
             
             if (distance1 >= 0) {
-                // Keep counting down normally
                 setTime("days", Math.floor(distance1 / 86400000));
                 setTime("hours", Math.floor((distance1 % 86400000) / 3600000));
                 setTime("mins", Math.floor((distance1 % 3600000) / 60000));
                 setTime("secs", Math.floor((distance1 % 60000) / 1000));
             } else {
-                // Master countdown reached zero!
-                // 1. Force counters to stay visible showing zeros
-                setTime("days", 0);
-                setTime("hours", 0);
-                setTime("mins", 0);
-                setTime("secs", 0);
+                setTime("days", 0); setTime("hours", 0); setTime("mins", 0); setTime("secs", 0);
                 
-                // 2. Change secondary sentence to celebration phrase
                 let subSentence = document.getElementById("phraseDisplay");
-                if (subSentence) subSentence.innerText = "🔥🔥خلاص خلاص خلاويص خلصنا🔥🔥";
+                if (subSentence) {
+                    subSentence.innerText = "🔥🔥خلاص خلاص خلاويص خلصنا🔥🔥";
+                    subSentence.classList.add("showy-finished");
+                }
 
-                // 3. Keep generating celebratory fireworks loops
+                startSemesterEndingSequence();
+
                 if (!window.fireworksLoopActive) {
                     window.fireworksLoopActive = true;
                     setInterval(() => { triggerVictoryCelebration(); }, 1500);
-                }
-
-                // 4. Handle playlist random track swapping
-                let audioPlayer = document.getElementById("bg-music");
-                if (audioPlayer && !window.audioPlaylistSwapped) {
-                    window.audioPlaylistSwapped = true;
-                    audioPlayer.pause();
-                    const partySongs = ["rakasony.mp3", "nagahna.mp3", "eid.mp3", "elnageh.mp3", "khalas.mp3", "ferksh.mp3", "khelst.mp3"];
-                    const randomSongIndex = Math.floor(Math.random() * partySongs.length);
-                    audioPlayer.src = partySongs[randomSongIndex];
-                    audioPlayer.load();
-                    audioPlayer.muted = false;
-                    audioPlayer.play().catch(err => {});
                 }
             }
 
@@ -632,11 +753,13 @@
                 let titleNode = document.getElementById("s-title");
                 let containerNode = document.getElementById("s-container");
                 if (titleNode) titleNode.style.display = "none";
-                if (containerNode) containerNode.innerHTML = "<span style='color: #ff4a4a; font-weight: 800; font-size: 1.05rem; text-shadow: 0px 2px 8px rgba(0,0,0,0.5);'>ف شوااال؟؟؟</span>";
+                if (containerNode) containerNode.innerHTML = "<span style='color: #ff4a4a; font-weight: 800; font-size: 1.05rem;'>ف شوااال؟؟؟</span>";
             }
         }
         setInterval(updateTimers, 1000);
         updateTimers();
+
+        // Zoom & Drag Physics for Main Component Elements
         const elements = document.querySelectorAll('.zoom-drag-component');
         let secondaryTransformState = { x: 0, y: 0, scale: 1.0 };
 
@@ -680,7 +803,6 @@
             el.addEventListener('pointerup', stopGesture); el.addEventListener('pointercancel', stopGesture);
             el.applyYourTransforms = applyTransform; 
         });
-
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -689,29 +811,144 @@
             return array;
         }
 
-        let victoryTriggered = false, bricks = [], gameBallState = { x: 0, y: 0, vx: 0, vy: 0, radius: 7 }, score = 0, lives = 3, gameModeActive = false;
+        // Brick Breaker Engine
+        let victoryTriggered = false, bricks = [], gameBallState = { x: 0, y: 0, vx: 0, vy: 0, radius: 10 }, score = 0, lives = 3, gameModeActive = false, gameLoopId = null;
         const gameAreaLayer = document.getElementById('gameAreaLayer'), gameBallEl = document.getElementById('gameBall'), secondaryComp = document.getElementById('secondaryComponent'), secondaryBadgeWrapper = document.getElementById('secondaryBadgeWrapper'), gameScoreboard = document.getElementById('gameScoreboard'), scoreValueEl = document.getElementById('scoreValue'), livesValueEl = document.getElementById('livesValue'), rowColors = ["#ff4a4a", "#ffaa00", "#40e0d0", "#00ff66"];
 
+        function initBricks() {
+            gameAreaLayer.innerHTML = ''; bricks = [];
+            const customBrickTitles = ["رمد", "مسالك", "Git", "عظام", "طوارئ", "باثو", "عمرو حمدي"];
+            const cols = customBrickTitles.length;
+            const rows = 4;
+            const gap = 8;
+            const brickHeight = 22;
+            const screenWidth = window.innerWidth;
+            const totalGap = gap * (cols + 1);
+            const brickWidth = Math.floor((screenWidth - totalGap) / cols);
+            const startTop = 75;
+
+            for (let r = 0; r < rows; r++) {
+                let shuffledTitles = shuffle([...customBrickTitles]);
+                for (let c = 0; c < cols; c++) {
+                    const leftPos = gap + c * (brickWidth + gap);
+                    const topPos = startTop + r * (brickHeight + gap);
+                    const brick = document.createElement('div');
+                    brick.className = 'game-brick';
+                    brick.style.width = `${brickWidth}px`;
+                    brick.style.left = `${leftPos}px`;
+                    brick.style.top = `${topPos}px`;
+                    brick.style.backgroundColor = rowColors[r % rowColors.length];
+                    brick.innerText = shuffledTitles[c];
+                    gameAreaLayer.appendChild(brick);
+                    bricks.push({ el: brick, x: leftPos, y: topPos, w: brickWidth, h: brickHeight, active: true, points: (rows - r) * 10 });
+                }
+            }
+        }
+
+        function resetBallPosition() {
+            const paddleRect = secondaryBadgeWrapper.getBoundingClientRect();
+            gameBallState.x = paddleRect.left + paddleRect.width / 2;
+            gameBallState.y = paddleRect.top - 14;
+            const speed = 6;
+            gameBallState.vx = (Math.random() > 0.5 ? 1 : -1) * (speed * 0.6);
+            gameBallState.vy = -speed * 0.8;
+            updateBallDOM();
+        }
+
+        function updateBallDOM() {
+            gameBallEl.style.transform = `translate(${gameBallState.x - 10}px, ${gameBallState.y - 10}px)`;
+        }
+
+        function runBrickBreakerLoop() {
+            if (!gameModeActive) return;
+            gameBallState.x += gameBallState.vx;
+            gameBallState.y += gameBallState.vy;
+
+            if (gameBallState.x <= 10) { gameBallState.x = 10; gameBallState.vx *= -1; }
+            if (gameBallState.x >= window.innerWidth - 10) { gameBallState.x = window.innerWidth - 10; gameBallState.vx *= -1; }
+            if (gameBallState.y <= 10) { gameBallState.y = 10; gameBallState.vy *= -1; }
+
+            const paddleRect = secondaryBadgeWrapper.getBoundingClientRect();
+            if (gameBallState.y + 10 >= paddleRect.top && gameBallState.y - 10 <= paddleRect.bottom &&
+                gameBallState.x + 10 >= paddleRect.left && gameBallState.x - 10 <= paddleRect.right) {
+                if (gameBallState.vy > 0) {
+                    gameBallState.vy *= -1;
+                    const hitPos = (gameBallState.x - paddleRect.left) / paddleRect.width;
+                    gameBallState.vx = (hitPos - 0.5) * 8;
+                    gameBallState.y = paddleRect.top - 11;
+                }
+            }
+
+            bricks.forEach(b => {
+                if (b.active) {
+                    if (gameBallState.x + 10 > b.x && gameBallState.x - 10 < b.x + b.w &&
+                        gameBallState.y + 10 > b.y && gameBallState.y - 10 < b.y + b.h) {
+                        b.active = false; b.el.style.opacity = '0';
+                        gameBallState.vy *= -1; score += b.points;
+                        scoreValueEl.innerText = score.toString().padStart(4, '0');
+                    }
+                }
+            });
+
+            if (bricks.length > 0 && bricks.every(b => !b.active)) {
+                if (!victoryTriggered) {
+                    victoryTriggered = true;
+                    triggerVictoryCelebration();
+                    setTimeout(() => {
+                        alert("ولعع وربي خوطورة");
+                        gameModeBtn.click();
+                    }, 300);
+                }
+                return;
+            }
+
+            if (gameBallState.y > window.innerHeight + 20) {
+                lives--;
+                livesValueEl.innerText = "❤️".repeat(Math.max(0, lives));
+                if (lives <= 0) {
+                    alert("مضعف");
+                    gameModeBtn.click();
+                    return;
+                }
+                resetBallPosition();
+            }
+
+            updateBallDOM();
+            gameLoopId = requestAnimationFrame(runBrickBreakerLoop);
+        }
+        // Flappy Bird Engine
         const flappyCanvas = document.getElementById('flappyGameCanvas');
         const flappyCtx = flappyCanvas.getContext('2d');
         const flappyGameBtn = document.getElementById('flappyGameModeBtn');
 
         let flappyActive = false, flappyAnimationId = null, flappyScore = 0, flappyGameOver = false, flappyStarted = false; 
-        const GAME_SPEED = 1.4, GRAVITY_FORCE = 0.16, JUMP_IMPULSE = -3.9, OBSTACLE_SPAWN_RATE = 200, OBSTACLE_GAP_SIZE = 180;    
-        const cap = { x: 75, y: 200, radius: 10, velocity: 0 };
+        const GAME_SPEED = 1.6, GRAVITY_FORCE = 0.18, JUMP_IMPULSE = -4.2, OBSTACLE_SPAWN_RATE = 180, OBSTACLE_GAP_SIZE = 170;    
+        const cap = { x: 80, y: 200, radius: 12, velocity: 0 };
         let pipes = []; let pipeFrameCounter = 0;
 
         function initFlappyEngine() {
             flappyCanvas.width = window.innerWidth; flappyCanvas.height = window.innerHeight;
             cap.y = flappyCanvas.height / 2; cap.velocity = 0; pipes = []; flappyScore = 0; pipeFrameCounter = 0; flappyGameOver = false; flappyStarted = false; 
         }
-        function triggerCapJump() { if (!flappyActive) return; if (flappyGameOver) { initFlappyEngine(); return; } if (!flappyStarted) { flappyStarted = true; } cap.velocity = JUMP_IMPULSE; }
+
+        function triggerCapJump() { 
+            if (!flappyActive) return; 
+            if (flappyGameOver) { 
+                initFlappyEngine(); 
+                return; 
+            } 
+            if (!flappyStarted) { flappyStarted = true; } 
+            cap.velocity = JUMP_IMPULSE; 
+        }
 
         window.addEventListener('keydown', (e) => { if (e.key === ' ' || e.key === 'ArrowUp') { e.preventDefault(); triggerCapJump(); } });
         flappyCanvas.addEventListener('touchstart', (e) => { e.preventDefault(); triggerCapJump(); }, { passive: false });
         flappyCanvas.addEventListener('mousedown', (e) => { if (e.target === flappyCanvas) triggerCapJump(); });
+
         function drawFlappyGame() {
-            if (!flappyActive) return; flappyCtx.clearRect(0, 0, flappyCanvas.width, flappyCanvas.height);
+            if (!flappyActive) return; 
+            flappyCtx.clearRect(0, 0, flappyCanvas.width, flappyCanvas.height);
+            
             if (!flappyGameOver) {
                 if (flappyStarted) {
                     cap.velocity += GRAVITY_FORCE; cap.y += cap.velocity;
@@ -732,23 +969,35 @@
                     pipes = pipes.filter(p => p.x > -70);
                 } else { cap.y = (flappyCanvas.height / 2) + Math.sin(performance.now() * 0.004) * 8; }
             }
+
             pipes.forEach(p => {
                 flappyCtx.fillStyle = '#b45309'; flappyCtx.fillRect(p.x - 4, 0, 73, p.top); flappyCtx.fillRect(p.x - 4, flappyCanvas.height - p.bottom, 73, p.bottom);
                 flappyCtx.fillStyle = '#f8fafc'; flappyCtx.strokeStyle = '#475569'; flappyCtx.lineWidth = 2;
                 flappyCtx.fillRect(p.x, 0, 65, p.top - 8); flappyCtx.strokeRect(p.x, 0, 65, p.top - 8);
                 flappyCtx.fillRect(p.x, flappyCanvas.height - p.bottom + 8, 65, p.bottom); flappyCtx.strokeRect(p.x, flappyCanvas.height - p.bottom + 8, 65, p.bottom);
-                flappyCtx.fillStyle = '#16a34a'; flappyCtx.font = '900 1.5rem sans-serif'; flappyCtx.textBaseline = 'middle';
+                flappyCtx.fillStyle = '#16a34a'; flappyCtx.font = '900 1.4rem sans-serif'; flappyCtx.textBaseline = 'middle';
                 flappyCtx.fillText("A+", p.x + 18, p.top - 20); flappyCtx.fillText("A+", p.x + 18, flappyCanvas.height - p.bottom + 40);
             });
+
             flappyCtx.save(); flappyCtx.translate(cap.x, cap.y);
             let tiltAngle = flappyStarted ? Math.min(Math.max(cap.velocity * 0.07, -0.4), 0.7) : 0;
             flappyCtx.rotate(tiltAngle); flappyCtx.fillStyle = '#40e0d0'; flappyCtx.fillRect(-10, 2, 20, 8);
             flappyCtx.fillStyle = '#1e293b'; flappyCtx.strokeStyle = '#40e0d0'; flappyCtx.beginPath(); flappyCtx.moveTo(0, -11); flappyCtx.lineTo(22, -2); flappyCtx.lineTo(0, 7); flappyCtx.lineTo(-22, -2); flappyCtx.closePath(); flappyCtx.fill(); flappyCtx.stroke(); flappyCtx.restore();
-            flappyCtx.fillStyle = '#ffffff'; flappyCtx.font = '800 1.5rem sans-serif'; flappyCtx.textAlign = 'center';
-            flappyCtx.fillText(`الامتحانات اللي جبتها ف شواال: ${flappyScore}`, flappyCanvas.width / 2, 50);
+
+            flappyCtx.fillStyle = '#ffffff'; flappyCtx.font = '800 1.4rem sans-serif'; flappyCtx.textAlign = 'center';
+            flappyCtx.fillText(`الامتحانات اللي عدتها: ${flappyScore}`, flappyCanvas.width / 2, 50);
+
+            if (flappyGameOver) {
+                flappyCtx.fillStyle = 'rgba(0, 0, 0, 0.75)'; flappyCtx.fillRect(0, 0, flappyCanvas.width, flappyCanvas.height);
+                flappyCtx.fillStyle = '#ff4a4a'; flappyCtx.font = '800 1.5rem sans-serif'; flappyCtx.fillText('للاسف هزمتك الامتحانات يا صاحبي', flappyCanvas.width / 2, flappyCanvas.height / 2 - 40);
+                flappyCtx.fillStyle = '#ffffff'; flappyCtx.font = '700 1.2rem sans-serif'; flappyCtx.fillText(`الامتحانات اللي جبتها ف شوال: ${flappyScore}`, flappyCanvas.width / 2, flappyCanvas.height / 2 + 10);
+                flappyCtx.fillStyle = '#40e0d0'; flappyCtx.font = '600 1rem sans-serif'; flappyCtx.fillText('دوس ف اي مكان علشان تعيد م الاول', flappyCanvas.width / 2, flappyCanvas.height / 2 + 60);
+            }
+
             flappyAnimationId = requestAnimationFrame(drawFlappyGame);
         }
 
+        // Pomodoro Manager
         const pomodoroBtn = document.getElementById('pomodoroBtn');
         const stopPomodoroBtn = document.getElementById('stopPomodoroBtn');
         const pomodoroOverlay = document.getElementById('pomodoroOverlay');
@@ -766,14 +1015,14 @@
         pomodoroOverlay.addEventListener('click', () => { if (activeSessionType === 'study') toggleOverlayDim(true); });
 
         function startStudySession() {
-            clearInterval(pomodoroInterval); activeSessionType = 'study'; breakHUD.style.display = 'none'; 
+            clearInterval(pomodoroInterval); activeSessionType = 'study'; updateVideoVisibility(); breakHUD.style.display = 'none'; 
             let minutesInput = parseInt(document.getElementById('studyTimeInput').value) || 25; let timeLeft = minutesInput * 60;
             pomodoroDisplay.innerText = `${minutesInput}:00`; pomodoroOverlay.style.display = 'flex'; toggleOverlayDim(false);
             pomodoroInterval = setInterval(() => { timeLeft--; let dispMins = Math.floor(timeLeft / 60); let dispSecs = timeLeft % 60; pomodoroDisplay.innerText = `${dispMins}:${dispSecs.toString().padStart(2, '0')}`; if (timeLeft <= 0) { clearInterval(pomodoroInterval); pomodoroOverlay.style.display = 'none'; startBreakSession(); } }, 1000);
         }
 
         function startBreakSession() {
-            clearInterval(pomodoroInterval); activeSessionType = 'break'; let breakInput = parseInt(document.getElementById('breakTimeInput').value) || 5; let timeLeft = breakInput * 60;
+            clearInterval(pomodoroInterval); activeSessionType = 'break'; updateVideoVisibility(); let breakInput = parseInt(document.getElementById('breakTimeInput').value) || 5; let timeLeft = breakInput * 60;
             breakDisplay.innerText = `${breakInput}:00`; breakHUD.style.display = 'block'; 
             pomodoroInterval = setInterval(() => {
                 timeLeft--; let dispMins = Math.floor(timeLeft / 60); let dispSecs = timeLeft % 60; breakDisplay.innerText = `${dispMins}:${dispSecs.toString().padStart(2, '0')}`;
@@ -787,15 +1036,59 @@
 
         pomodoroBtn.addEventListener('click', () => { shelf.style.transform = `translateY(${getClosedTranslationValue()}px)`; shelfIsOpen = false; if (gameModeActive) gameModeBtn.click(); if (flappyActive) flappyGameBtn.click(); startStudySession(); });
         skipBreakBtn.addEventListener('click', (e) => { e.stopPropagation(); startStudySession(); });
-        stopPomodoroBtn.addEventListener('click', (e) => { e.stopPropagation(); clearInterval(pomodoroInterval); clearTimeout(dimTimeout); pomodoroOverlay.style.display = 'none'; breakHUD.style.display = 'none'; activeSessionType = null; });
+        stopPomodoroBtn.addEventListener('click', (e) => { e.stopPropagation(); clearInterval(pomodoroInterval); clearTimeout(dimTimeout); pomodoroOverlay.style.display = 'none'; breakHUD.style.display = 'none'; activeSessionType = null; updateVideoVisibility(); });
 
-        const bouncer = document.getElementById('bouncingComponent');
         flappyGameBtn.addEventListener('click', () => {
             flappyActive = !flappyActive;
+            updateVideoVisibility();
             if (flappyActive) {
-                if (gameModeActive) gameModeBtn.click(); flappyCanvas.style.display = 'block'; flappyGameBtn.innerText = "Stop Flappy Bird"; flappyGameBtn.style.background = "#ef4444";
-                bouncer.style.display = 'none'; initFlappyEngine(); shelf.style.transform = `translateY(${getClosedTranslationValue()}px)`; shelfIsOpen = false; drawFlappyGame();
-            } else { flappyActive = false; cancelAnimationFrame(flappyAnimationId); flappyCanvas.style.display = 'none'; flappyGameBtn.innerText = "Start Flappy Bird"; flappyGameBtn.style.background = "#eab308"; if (document.getElementById('bouncerToggle').checked) bouncer.style.display = 'block'; }
+                if (gameModeActive) gameModeBtn.click(); 
+                flappyCanvas.style.display = 'block'; 
+                flappyGameBtn.innerText = "Stop Flappy Bird"; 
+                flappyGameBtn.style.background = "#ef4444";
+                initFlappyEngine(); 
+                shelf.style.transform = `translateY(${getClosedTranslationValue()}px)`; 
+                shelfIsOpen = false; 
+                drawFlappyGame();
+            } else { 
+                flappyActive = false; 
+                cancelAnimationFrame(flappyAnimationId); 
+                flappyCanvas.style.display = 'none'; 
+                flappyGameBtn.innerText = "Flappy Bird 🐤"; 
+                flappyGameBtn.style.background = "#eab308"; 
+            }
+        });
+
+        const gameModeBtn = document.getElementById('gameModeBtn');
+        gameModeBtn.addEventListener('click', () => {
+            gameModeActive = !gameModeActive;
+            updateVideoVisibility();
+            if (gameModeActive) {
+                if (flappyActive) flappyGameBtn.click();
+                gameAreaLayer.style.display = 'block';
+                gameBallEl.style.display = 'block';
+                gameScoreboard.style.display = 'flex';
+                secondaryBadgeWrapper.classList.add('game-paddle-active');
+                gameModeBtn.classList.add('active-state');
+                gameModeBtn.innerText = "stop bricks game";
+                victoryTriggered = false; score = 0; lives = 3;
+                scoreValueEl.innerText = "0000"; livesValueEl.innerText = "❤️❤️❤️";
+                initBricks();
+                resetBallPosition();
+                shelf.style.transform = `translateY(${getClosedTranslationValue()}px)`;
+                shelfIsOpen = false;
+                secondaryComp.applyYourTransforms();
+                runBrickBreakerLoop();
+            } else {
+                cancelAnimationFrame(gameLoopId);
+                gameAreaLayer.style.display = 'none';
+                gameBallEl.style.display = 'none';
+                gameScoreboard.style.display = 'none';
+                secondaryBadgeWrapper.classList.remove('game-paddle-active');
+                gameModeBtn.classList.remove('active-state');
+                gameModeBtn.innerText = "BRICKS GAME";
+                secondaryComp.applyYourTransforms();
+            }
         });
 
         const shelf = document.getElementById('appBottomShelf'), shelfHandleArea = document.getElementById('shelfHandleArea');
@@ -808,8 +1101,8 @@
         window.addEventListener('pointermove', (e) => { if (!globalIsTracking) return; let deltaY = e.clientY - globalStartY, closedPos = getClosedTranslationValue(); shelf.style.transform = !shelfIsOpen ? `translateY(${Math.max(0, closedPos + deltaY)}px)` : `translateY(${Math.min(closedPos, deltaY)}px)`; globalCurrentDeltaY = deltaY; });
         window.addEventListener('pointerup', () => { if (!globalIsTracking) return; globalIsTracking = false; shelf.style.transition = 'transform 0.38s cubic-bezier(0.25, 1, 0.5, 1)'; if (!shelfIsOpen) { if (globalCurrentDeltaY < -40) { shelf.style.transform = 'translateY(0px)'; shelfIsOpen = true; } else shelf.style.transform = `translateY(${getClosedTranslationValue()}px)`; } else { if (globalCurrentDeltaY > 40) { shelf.style.transform = `translateY(${getClosedTranslationValue()}px)`; shelfIsOpen = false; } else shelf.style.transform = 'translateY(0px)'; } });
 
-        const phraseDisplay = document.getElementById('phraseDisplay'), phraseInput = document.getElementById('phraseInput'), bouncerToggle = document.getElementById('bouncerToggle'), gameModeBtn = document.getElementById('gameModeBtn');
-        phraseInput.addEventListener('input', (e) => { let userText = e.target.value.trim(); phraseDisplay.innerText = userText === "" ? "كسر كسر واحنا نجبس" : userText; localStorage.setItem('customPhrase', phraseDisplay.innerText); });
+        const phraseDisplay = document.getElementById('phraseDisplay'), phraseInput = document.getElementById('phraseInput');
+        phraseInput.addEventListener('input', (e) => { let userText = e.target.value.trim(); phraseDisplay.innerText = userText === "" ? "كسر كسر واحنا نجبس" : userText; });
 
         function playBackgroundMusic() { const audioStream = document.getElementById("bg-music"); if (audioStream.muted) { audioStream.muted = false; audioStream.play().catch(err => {}); } window.removeEventListener('click', playBackgroundMusic); }
         window.addEventListener('click', playBackgroundMusic);
